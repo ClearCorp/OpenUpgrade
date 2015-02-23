@@ -89,6 +89,13 @@
             <field name="report_type">asset</field>
             <field name="close_method">balance</field>
         </record>
+        <record id="account_account_type_reconcile_non_current_asset" model="account.account.type">
+            <field name="code">A/RNC</field>
+            <field name="name">Activo no corriente conciliable</field>
+            
+            <field name="report_type">asset</field>
+            <field name="close_method">balance</field>
+        </record>
         <record id="account_account_type_fixed_asset" model="account.account.type">
             <field name="code">A/NC/F</field>
             <field name="name">Activo fijo</field>
