@@ -292,12 +292,12 @@ class res_currency_rate(osv.osv):
     _description = "Currency Rate"
 
     _columns = {
-        'name': fields.datetime('Date', required=True, select=True),
+        'name': fields.date('Date', required=True, select=True),
         'rate': fields.float('Rate', digits=(12, 6), help='The rate of the currency to the currency of rate 1'),
         'currency_id': fields.many2one('res.currency', 'Currency', readonly=True),
     }
     _defaults = {
-        'name': lambda *a: time.strftime('%Y-%m-%d 00:00:00'),
+        'name': lambda *a: time.strftime('%Y-%m-%d'),
     }
     _order = "name desc"
 
