@@ -352,7 +352,7 @@ class account_voucher(osv.osv):
         'analytic_id': fields.many2one('account.analytic.account','Write-Off Analytic Account', readonly=True, states={'draft': [('readonly', False)]}),
         'writeoff_amount': fields.function(_get_writeoff_amount, string='Difference Amount', type='float', readonly=True, help="Computed as the difference between the amount stated in the voucher and the sum of allocation on the voucher lines."),
         'payment_rate_currency_id': fields.many2one('res.currency', 'Payment Rate Currency', required=True, readonly=True, states={'draft':[('readonly',False)]}),
-        'payment_rate': fields.float('Exchange Rate', digits=(12,6), required=True, readonly=True, states={'draft': [('readonly', False)]},
+        'payment_rate': fields.float('Exchange Rate', digits=(32,20), required=True, readonly=True, states={'draft': [('readonly', False)]},
             help='The specific rate that will be used, in this voucher, between the selected currency (in \'Payment Rate Currency\' field)  and the voucher currency.'),
         'paid_amount_in_company_currency': fields.function(_paid_amount_in_company_currency, string='Paid Amount in Company Currency', type='float', readonly=True),
         'is_multi_currency': fields.boolean('Multi Currency Voucher', help='Fields with internal purpose only that depicts if the voucher is a multi currency one or not'),
@@ -740,7 +740,21 @@ class account_voucher(osv.osv):
                     #if the invoice linked to the voucher line is equal to the invoice_id in context
                     #then we assign the amount on that line, whatever the other voucher lines
                     move_lines_found.append(line.id)
-            elif currency_id == company_currency:
+            elif line.currency_id and currency_id == line.currency_id.id:
+                if line.amount_residual_currency == price:
+                    move_lines_found.append(line.id)
+                    break
+                total_credit += line.credit and line.amount_currency or 0.0
+                total_debit += line.debit and line.amount_currency or 0.0
+            elif line.currency_id and currency_id != line.currency_id.id:
+                amount_original = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_currency), context=context_multi_currency)
+                amount_unreconciled = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_residual_currency), context=context_multi_currency)
+                if amount_unreconciled == price:
+                    move_lines_found.append(line.id)
+                    break
+                total_credit += line.credit and amount_original or 0.0
+                total_debit += line.debit and amount_original or 0.0
+            else:
                 #otherwise treatments is the same but with other field names
                 if line.amount_residual == price:
                     #if the amount residual is equal the amount voucher, we assign it to that voucher
@@ -750,12 +764,6 @@ class account_voucher(osv.osv):
                 #otherwise we will split the voucher amount on each line (by most old first)
                 total_credit += line.credit or 0.0
                 total_debit += line.debit or 0.0
-            elif currency_id == line.currency_id.id:
-                if line.amount_residual_currency == price:
-                    move_lines_found.append(line.id)
-                    break
-                total_credit += line.credit and line.amount_currency or 0.0
-                total_debit += line.debit and line.amount_currency or 0.0
 
         remaining_amount = price
         #voucher line creation
@@ -767,6 +775,9 @@ class account_voucher(osv.osv):
             if line.currency_id and currency_id == line.currency_id.id:
                 amount_original = abs(line.amount_currency)
                 amount_unreconciled = abs(line.amount_residual_currency)
+            elif line.currency_id and currency_id != line.currency_id.id:
+                amount_original = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_currency), context=context_multi_currency)
+                amount_unreconciled = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_residual_currency), context=context_multi_currency)
             else:
                 #always use the amount booked in the company currency as the basis of the conversion into the voucher currency
                 amount_original = currency_pool.compute(cr, uid, company_currency, currency_id, line.credit or line.debit or 0.0, context=context_multi_currency)
@@ -1441,6 +1452,9 @@ class account_voucher_line(osv.osv):
             elif move_line.currency_id and voucher_currency==move_line.currency_id.id:
                 res['amount_original'] = abs(move_line.amount_currency)
                 res['amount_unreconciled'] = abs(move_line.amount_residual_currency)
+            elif move_line.currency_id and voucher_currency!=move_line.currency_id.id:
+                res['amount_original'] = currency_pool.compute(cr, uid, move_line.currency_id.id, voucher_currency, abs(move_line.amount_currency), context=ctx)
+                res['amount_unreconciled'] = currency_pool.compute(cr, uid, move_line.currency_id.id, voucher_currency, abs(move_line.amount_residual_currency), context=ctx)
             else:
                 #always use the amount booked in the company currency as the basis of the conversion into the voucher currency
                 res['amount_original'] = currency_pool.compute(cr, uid, company_currency, voucher_currency, move_line.credit or move_line.debit or 0.0, context=ctx)
