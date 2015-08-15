@@ -76,11 +76,12 @@ class document_file(osv.osv):
         super(document_file, self).check(cr, uid, ids, mode, context=context, values=values)
         
         if ids:
-            self.pool.get('ir.model.access').check(cr, uid, 'document.directory', mode)
-
             # use SQL to avoid recursive loop on read
             cr.execute('SELECT DISTINCT parent_id from ir_attachment WHERE id in %s AND parent_id is not NULL', (tuple(ids),))
-            self.pool.get('document.directory').check_access_rule(cr, uid, [parent_id for (parent_id,) in cr.fetchall()], mode, context=context)
+            parent_ids = [parent_id for (parent_id,) in cr.fetchall()]
+            if parent_ids:
+                self.pool.get('ir.model.access').check(cr, uid, 'document.directory', mode)
+                self.pool.get('document.directory').check_access_rule(cr, uid, parent_ids, mode, context=context)
 
     def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
         # Grab ids, bypassing 'count'
@@ -103,11 +104,17 @@ class document_file(osv.osv):
         visible_parent_ids = self.pool.get('document.directory').search(cr, uid, [('id', 'in', list(parent_ids))])
 
         # null parents means allowed
+        orig_ids = ids # save the ids, to keep order
         ids = parents.get(None,[])
         for parent_id in visible_parent_ids:
             ids.extend(parents[parent_id])
 
-        return len(ids) if count else ids
+        # sort result according to the original sort ordering
+        if count:
+            return len(ids)
+        else:
+            set_ids = set(ids)
+            return [id for id in orig_ids if id in set_ids]
 
     def copy(self, cr, uid, id, default=None, context=None):
         if not default:
