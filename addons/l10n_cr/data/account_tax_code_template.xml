@@ -164,30 +164,6 @@
             <field name="parent_id" eval="account_tax_code_template_I_IV_C_Imp"/>
             <field name="notprintable" eval="False"/>
         </record>
-        <record id="account_tax_code_template_I_ISC" model="account.tax.code.template">
-            <field name="code">I/ISC</field>
-            <field name="name">Impuesto Selectivo de Consumo</field>
-            <field name="info">Impuesto Selectivo de Consumo</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_I"/>
-            <field name="notprintable" eval="False"/>
-        </record>
-        <record id="account_tax_code_template_I_ISC_G" model="account.tax.code.template">
-            <field name="code">I/ISC/G</field>
-            <field name="name">ISC: Venta Gravada</field>
-            <field name="info">ISC: Venta Gravada</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_I_ISC"/>
-            <field name="notprintable" eval="False"/>
-        </record>
-        <record id="account_tax_code_template_I_ISC_Exe" model="account.tax.code.template">
-            <field name="code">I/ISC/Exe</field>
-            <field name="name">ISC: Venta Exenta</field>
-            <field name="info">ISC: Venta Exenta</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_I_ISC"/>
-            <field name="notprintable" eval="False"/>
-        </record>
         <record id="account_tax_code_template_B" model="account.tax.code.template">
             <field name="code">B</field>
             <field name="name">Bases</field>
@@ -338,30 +314,6 @@
             <field name="info">Base IV: Compra Importada Especial</field>
             <field name="sign" eval="-1"/>
             <field name="parent_id" eval="account_tax_code_template_B_IV_C_Imp"/>
-            <field name="notprintable" eval="False"/>
-        </record>
-        <record id="account_tax_code_template_B_ISC" model="account.tax.code.template">
-            <field name="code">B/ISC</field>
-            <field name="name">Base Impuesto Selectivo de Consumo</field>
-            <field name="info">Base Impuesto Selectivo de Consumo</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_B"/>
-            <field name="notprintable" eval="False"/>
-        </record>
-        <record id="account_tax_code_template_B_ISC_G" model="account.tax.code.template">
-            <field name="code">B/ISC/G</field>
-            <field name="name">Base ISC: Venta Gravada</field>
-            <field name="info">Base ISC: Venta Gravada</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_B_ISC"/>
-            <field name="notprintable" eval="False"/>
-        </record>
-        <record id="account_tax_code_template_B_ISC_Exe" model="account.tax.code.template">
-            <field name="code">B/ISC/Exe</field>
-            <field name="name">Base ISC: Venta Exenta</field>
-            <field name="info">Base ISC: Venta Exenta</field>
-            <field name="sign" eval="1"/>
-            <field name="parent_id" eval="account_tax_code_template_B_ISC"/>
             <field name="notprintable" eval="False"/>
         </record>
     </data>

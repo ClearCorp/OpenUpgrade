@@ -74,7 +74,7 @@
         <record id="account_account_template_GEN_1112" model="account.account.template">
             <field name="code">1112</field>
             <field name="name">Bancos</field>
-            <field name="shortcut">Bnk</field>
+            <field name="shortcut">Bnc</field>
             <field name="parent_id" ref="account_account_template_GEN_111"/>
             <field name="user_type" ref="account.account_type_asset_view1"/>
             <field name="currency_id" ref=""/>
@@ -162,7 +162,7 @@
         <record id="account_account_template_GEN_1114" model="account.account.template">
             <field name="code">1114</field>
             <field name="name">Inversiones a la vista</field>
-            <field name="shortcut">InvVis</field>
+            <field name="shortcut">Vis</field>
             <field name="parent_id" ref="account_account_template_GEN_111"/>
             <field name="user_type" ref="account.account_type_asset_view1"/>
             <field name="currency_id" ref=""/>
@@ -186,9 +186,9 @@
             <field name="name">Banco Inversión ##### CRC</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_1114_01"/>
-            <field name="user_type" ref="account.data_account_type_asset"/>
+            <field name="user_type" ref="account.data_account_type_bank"/>
             <field name="currency_id" ref=""/>
-            <field name="type">other</field>
+            <field name="type">liquidity</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -208,9 +208,9 @@
             <field name="name">Banco Inversión ##### USD</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_1114_02"/>
-            <field name="user_type" ref="account.data_account_type_asset"/>
+            <field name="user_type" ref="account.data_account_type_bank"/>
             <field name="currency_id" ref="base.USD"/>
-            <field name="type">other</field>
+            <field name="type">liquidity</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -225,35 +225,90 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1119_0001" model="account.account.template">
-            <field name="code">1119.0001</field>
-            <field name="name">Cambio de moneda</field>
-            <field name="shortcut"></field>
+        <record id="account_account_template_GEN_1119_01" model="account.account.template">
+            <field name="code">1119.01</field>
+            <field name="name">CRC</field>
+            <field name="shortcut">CRC</field>
             <field name="parent_id" ref="account_account_template_GEN_1119"/>
-            <field name="user_type" ref="account.conf_account_type_chk"/>
+            <field name="user_type" ref="account.account_type_asset_view1"/>
             <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="True"/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1119_0002" model="account.account.template">
-            <field name="code">1119.0002</field>
+        <record id="account_account_template_GEN_1119_0101" model="account.account.template">
+            <field name="code">1119.0101</field>
             <field name="name">Efectivo por depositar o entregar</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1119"/>
+            <field name="parent_id" ref="account_account_template_GEN_1119_01"/>
             <field name="user_type" ref="account.conf_account_type_chk"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1119_0003" model="account.account.template">
-            <field name="code">1119.0003</field>
+        <record id="account_account_template_GEN_1119_0102" model="account.account.template">
+            <field name="code">1119.0102</field>
             <field name="name">Dinero en tránsito</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1119"/>
+            <field name="parent_id" ref="account_account_template_GEN_1119_01"/>
             <field name="user_type" ref="account.conf_account_type_chk"/>
             <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1119_0103" model="account.account.template">
+            <field name="code">1119.0103</field>
+            <field name="name">Cheques en tránsito</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_1119_01"/>
+            <field name="user_type" ref="account.conf_account_type_chk"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1119_02" model="account.account.template">
+            <field name="code">1119.02</field>
+            <field name="name">USD</field>
+            <field name="shortcut">CRC</field>
+            <field name="parent_id" ref="account_account_template_GEN_1119"/>
+            <field name="user_type" ref="account.account_type_asset_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1119_0201" model="account.account.template">
+            <field name="code">1119.0201</field>
+            <field name="name">Efectivo por depositar o entregar</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_1119_02"/>
+            <field name="user_type" ref="account.conf_account_type_chk"/>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1119_0202" model="account.account.template">
+            <field name="code">1119.0202</field>
+            <field name="name">Dinero en tránsito</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_1119_02"/>
+            <field name="user_type" ref="account.conf_account_type_chk"/>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1119_0203" model="account.account.template">
+            <field name="code">1119.0203</field>
+            <field name="name">Cheques en tránsito</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_1119_02"/>
+            <field name="user_type" ref="account.conf_account_type_chk"/>
+            <field name="currency_id" ref="base.USD"/>
             <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
@@ -282,7 +337,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1120_0002" model="account.account.template">
             <field name="code">1120.0002</field>
-            <field name="name">Empleados</field>
+            <field name="name">Colaboradores</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_112"/>
             <field name="user_type" ref="account.data_account_type_receivable"/>
@@ -293,7 +348,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1120_0003" model="account.account.template">
             <field name="code">1120.0003</field>
-            <field name="name">Dcomentos por cobrar</field>
+            <field name="name">Documentos por cobrar</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_112"/>
             <field name="user_type" ref="account.data_account_type_receivable"/>
@@ -313,8 +368,8 @@
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1120_0009" model="account.account.template">
-            <field name="code">1120.0009</field>
+        <record id="account_account_template_GEN_1120_0099" model="account.account.template">
+            <field name="code">1120.0099</field>
             <field name="name">Otras cuentas por cobrar</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_112"/>
@@ -414,6 +469,17 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1140_0002" model="account.account.template">
             <field name="code">1140.0002</field>
+            <field name="name">Materia prima</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_114"/>
+            <field name="user_type" ref="account_account_type_stock_products"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1140_0003" model="account.account.template">
+            <field name="code">1140.0003</field>
             <field name="name">Insumos y suministros</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_114"/>
@@ -423,9 +489,9 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1140_0009" model="account.account.template">
-            <field name="code">1140.0009</field>
-            <field name="name">Inventario en tránsito</field>
+        <record id="account_account_template_GEN_1140_0099" model="account.account.template">
+            <field name="code">1140.0099</field>
+            <field name="name">Tránsito</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_114"/>
             <field name="user_type" ref="account_account_type_stock_transit"/>
@@ -447,7 +513,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1150_0001" model="account.account.template">
             <field name="code">1150.0001</field>
-            <field name="name">Pólizas de seguros prepagadas</field>
+            <field name="name">Seguros</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_115"/>
             <field name="user_type" ref="account_account_type_reconcile_current_asset"/>
@@ -480,7 +546,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1150_0004" model="account.account.template">
             <field name="code">1150.0004</field>
-            <field name="name">Licencias de software</field>
+            <field name="name">Software</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_115"/>
             <field name="user_type" ref="account_account_type_reconcile_current_asset"/>
@@ -601,7 +667,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_122" model="account.account.template">
             <field name="code">122</field>
-            <field name="name">Activo fijo depreciable</field>
+            <field name="name">Activo fijo depreciable o amortizable</field>
             <field name="shortcut">AF-D</field>
             <field name="parent_id" ref="account_account_template_GEN_12"/>
             <field name="user_type" ref="account.account_type_asset_view1"/>
@@ -667,7 +733,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1221_0005" model="account.account.template">
             <field name="code">1221.0005</field>
-            <field name="name">Equipo informático y de comnicaciones</field>
+            <field name="name">Equipo informático y de comunicaciones</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_1221"/>
             <field name="user_type" ref="account_account_type_fixed_asset"/>
@@ -777,7 +843,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_1231_0005" model="account.account.template">
             <field name="code">1231.0005</field>
-            <field name="name">Equipo informático y de comnicaciones</field>
+            <field name="name">Equipo informático y de comunicaciones</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_1231"/>
             <field name="user_type" ref="account_account_type_fixed_asset_contra"/>
@@ -819,43 +885,10 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1233" model="account.account.template">
-            <field name="code">1233</field>
-            <field name="name">Gastos diferidos</field>
-            <field name="shortcut">GD</field>
-            <field name="parent_id" ref="account_account_template_GEN_123"/>
-            <field name="user_type" ref="account.account_type_asset_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1233_0001" model="account.account.template">
-            <field name="code">1233.0001</field>
-            <field name="name">Pólizas de seguro</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1233"/>
-            <field name="user_type" ref="account_account_type_non_current_asset"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1233_0002" model="account.account.template">
-            <field name="code">1233.0002</field>
-            <field name="name">Membresías y suscripciones</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1233"/>
-            <field name="user_type" ref="account_account_type_non_current_asset"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_124" model="account.account.template">
             <field name="code">124</field>
-            <field name="name">Inversiones en otras sociedades</field>
-            <field name="shortcut">Soc</field>
+            <field name="name">Documentos por cobrar a largo plazo</field>
+            <field name="shortcut">DxC</field>
             <field name="parent_id" ref="account_account_template_GEN_12"/>
             <field name="user_type" ref="account.account_type_asset_view1"/>
             <field name="currency_id" ref=""/>
@@ -863,33 +896,55 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1241" model="account.account.template">
-            <field name="code">1241</field>
-            <field name="name">Compañía NNNNN</field>
-            <field name="shortcut">NNN</field>
+        <record id="account_account_template_GEN_1240_0001" model="account.account.template">
+            <field name="code">1240.0001</field>
+            <field name="name">Financiamiento a clientes a largo plazo</field>
+            <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_124"/>
+            <field name="user_type" ref="account_account_type_reconcile_non_current_asset"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_125" model="account.account.template">
+            <field name="code">125</field>
+            <field name="name">Inversiones en otras sociedades</field>
+            <field name="shortcut">Inv</field>
+            <field name="parent_id" ref="account_account_template_GEN_12"/>
             <field name="user_type" ref="account.account_type_asset_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1241_0001" model="account.account.template">
-            <field name="code">1241.0001</field>
+        <record id="account_account_template_GEN_1251" model="account.account.template">
+            <field name="code">1251</field>
+            <field name="name">Compañía NNNNN</field>
+            <field name="shortcut">NNN</field>
+            <field name="parent_id" ref="account_account_template_GEN_125"/>
+            <field name="user_type" ref="account.account_type_asset_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_1251_0001" model="account.account.template">
+            <field name="code">1251.0001</field>
             <field name="name">Acciones comunes</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1241"/>
+            <field name="parent_id" ref="account_account_template_GEN_1251"/>
             <field name="user_type" ref="account_account_type_non_current_asset"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_1241_0002" model="account.account.template">
-            <field name="code">1241.0002</field>
+        <record id="account_account_template_GEN_1251_0002" model="account.account.template">
+            <field name="code">1251.0002</field>
             <field name="name">Aportes extraordinarios de capital</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_1241"/>
+            <field name="parent_id" ref="account_account_template_GEN_1251"/>
             <field name="user_type" ref="account_account_type_non_current_asset"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
@@ -942,7 +997,7 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_2110_0002" model="account.account.template">
             <field name="code">2110.0002</field>
-            <field name="name">Empleados</field>
+            <field name="name">Colaboradores</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_211"/>
             <field name="user_type" ref="account.data_account_type_payable"/>
@@ -962,8 +1017,8 @@
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2110_0009" model="account.account.template">
-            <field name="code">2110.0009</field>
+        <record id="account_account_template_GEN_2110_0099" model="account.account.template">
+            <field name="code">2110.0099</field>
             <field name="name">Otras cuentas por pagar</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_211"/>
@@ -986,12 +1041,12 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_2120_0001" model="account.account.template">
             <field name="code">2120.0001</field>
-            <field name="name">Planillas</field>
+            <field name="name">Salarios</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1000,9 +1055,9 @@
             <field name="name">CCSS</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1011,9 +1066,9 @@
             <field name="name">Provisión de aguinaldo</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1022,9 +1077,9 @@
             <field name="name">Retención pensión voluntaria</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1033,9 +1088,9 @@
             <field name="name">Embargos y pensiones alimenticias</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1044,20 +1099,20 @@
             <field name="name">Asociación solidarista</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2120_0009" model="account.account.template">
-            <field name="code">2120.0009</field>
+        <record id="account_account_template_GEN_2120_0099" model="account.account.template">
+            <field name="code">2120.0099</field>
             <field name="name">Otras retenciones o aportes</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_212"/>
-            <field name="user_type" ref="account.data_account_type_payable"/>
+            <field name="user_type" ref="account_account_type_reconcile_current_liability"/>
             <field name="currency_id" ref=""/>
-            <field name="type">payable</field>
+            <field name="type">other</field>
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
@@ -1105,33 +1160,11 @@
             <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2132" model="account.account.template">
-            <field name="code">2132</field>
-            <field name="name">Impuesto selectivo de consumo</field>
-            <field name="shortcut">IV</field>
-            <field name="parent_id" ref="account_account_template_GEN_213"/>
-            <field name="user_type" ref="account.account_type_liability_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2132_0001" model="account.account.template">
-            <field name="code">2132.0001</field>
-            <field name="name">Impuesto selectivo de consumo por pagar</field>
+        <record id="account_account_template_GEN_2131_0003" model="account.account.template">
+            <field name="code">2131.0003</field>
+            <field name="name">Retenciones de impuesto de ventas</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_2132"/>
-            <field name="user_type" ref="account.conf_account_type_tax"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="True"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2132_0002" model="account.account.template">
-            <field name="code">2132.0002</field>
-            <field name="name">Crédito sobre impuesto selectivo de consumo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_2132"/>
+            <field name="parent_id" ref="account_account_template_GEN_2131"/>
             <field name="user_type" ref="account.conf_account_type_tax"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
@@ -1185,7 +1218,7 @@
         <record id="account_account_template_GEN_214" model="account.account.template">
             <field name="code">214</field>
             <field name="name">Créditos a corto plazo</field>
-            <field name="shortcut">Cort</field>
+            <field name="shortcut">CP</field>
             <field name="parent_id" ref="account_account_template_GEN_21"/>
             <field name="user_type" ref="account.account_type_liability_view1"/>
             <field name="currency_id" ref=""/>
@@ -1281,6 +1314,17 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_2142_0199" model="account.account.template">
+            <field name="code">2142.0199</field>
+            <field name="name">Pendientes de conciliar</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_2142_01"/>
+            <field name="user_type" ref="account_account_type_short_term_credit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_2142_02" model="account.account.template">
             <field name="code">2142.02</field>
             <field name="name">USD</field>
@@ -1295,6 +1339,17 @@
         <record id="account_account_template_GEN_2142_0201" model="account.account.template">
             <field name="code">2142.0201</field>
             <field name="name">VISA Banco NNNN ####-####-####-#### USD</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_2142_02"/>
+            <field name="user_type" ref="account_account_type_short_term_credit"/>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_2142_0299" model="account.account.template">
+            <field name="code">2142.0299</field>
+            <field name="name">Pendientes de conciliar</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_2142_02"/>
             <field name="user_type" ref="account_account_type_short_term_credit"/>
@@ -1363,10 +1418,10 @@
             <field name="name">Socio NNNNN</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_2152"/>
-            <field name="user_type" ref="account.data_account_type_liability"/>
+            <field name="user_type" ref="account.data_account_type_payable"/>
             <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
+            <field name="type">payable</field>
+            <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_22" model="account.account.template">
@@ -1429,61 +1484,6 @@
             <field name="name">Banco NNNN ##### USD</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_2210_02"/>
-            <field name="user_type" ref="account_account_type_non_current_liability"/>
-            <field name="currency_id" ref="base.USD"/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="True"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_222" model="account.account.template">
-            <field name="code">222</field>
-            <field name="name">Fideicomisos</field>
-            <field name="shortcut">Fid</field>
-            <field name="parent_id" ref="account_account_template_GEN_22"/>
-            <field name="user_type" ref="account.account_type_liability_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2220_01" model="account.account.template">
-            <field name="code">2220.01</field>
-            <field name="name">CRC</field>
-            <field name="shortcut">CRC</field>
-            <field name="parent_id" ref="account_account_template_GEN_222"/>
-            <field name="user_type" ref="account.account_type_liability_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2220_0101" model="account.account.template">
-            <field name="code">2220.0101</field>
-            <field name="name">Banco NNNN ##### CRC</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_2220_01"/>
-            <field name="user_type" ref="account_account_type_non_current_liability"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="True"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2220_02" model="account.account.template">
-            <field name="code">2220.02</field>
-            <field name="name">USD</field>
-            <field name="shortcut">USD</field>
-            <field name="parent_id" ref="account_account_template_GEN_222"/>
-            <field name="user_type" ref="account.account_type_liability_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_2220_0201" model="account.account.template">
-            <field name="code">2220.0201</field>
-            <field name="name">Banco NNNN ##### USD</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_2220_02"/>
             <field name="user_type" ref="account_account_type_non_current_liability"/>
             <field name="currency_id" ref="base.USD"/>
             <field name="type">other</field>
@@ -1655,28 +1655,6 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_39" model="account.account.template">
-            <field name="code">39</field>
-            <field name="name">Balance apertura</field>
-            <field name="shortcut">BAp</field>
-            <field name="parent_id" ref="account_account_template_GEN_3"/>
-            <field name="user_type" ref="account_account_type_view_equity"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_3900_0001" model="account.account.template">
-            <field name="code">3900.0001</field>
-            <field name="name">Balance apertura</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_39"/>
-            <field name="user_type" ref="account.conf_account_type_equity"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_4" model="account.account.template">
             <field name="code">4</field>
             <field name="name">Ingresos</field>
@@ -1688,8 +1666,8 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_41" model="account.account.template">
-            <field name="code">41</field>
+        <record id="account_account_template_GEN_4000_01" model="account.account.template">
+            <field name="code">4000.01</field>
             <field name="name">Operativos</field>
             <field name="shortcut">O</field>
             <field name="parent_id" ref="account_account_template_GEN_4"/>
@@ -1699,41 +1677,41 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4100_0001" model="account.account.template">
-            <field name="code">4100.0001</field>
-            <field name="name">Venta de servicios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_41"/>
-            <field name="user_type" ref="account.data_account_type_income"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4100_0002" model="account.account.template">
-            <field name="code">4100.0002</field>
+        <record id="account_account_template_GEN_4000_0101" model="account.account.template">
+            <field name="code">4000.0101</field>
             <field name="name">Venta de productos</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_41"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_01"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4100_0009" model="account.account.template">
-            <field name="code">4100.0009</field>
+        <record id="account_account_template_GEN_4000_0102" model="account.account.template">
+            <field name="code">4000.0102</field>
+            <field name="name">Venta de servicios</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_4000_01"/>
+            <field name="user_type" ref="account.data_account_type_income"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_4000_0199" model="account.account.template">
+            <field name="code">4000.0199</field>
             <field name="name">Otros ingresos operativos</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_41"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_01"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_42" model="account.account.template">
-            <field name="code">42</field>
+        <record id="account_account_template_GEN_4000_02" model="account.account.template">
+            <field name="code">4000.02</field>
             <field name="name">Ingresos financieros</field>
             <field name="shortcut">F</field>
             <field name="parent_id" ref="account_account_template_GEN_4"/>
@@ -1743,63 +1721,74 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4200_0001" model="account.account.template">
-            <field name="code">4200.0001</field>
-            <field name="name">Intereses sobre cuentas por cobrar</field>
+        <record id="account_account_template_GEN_4000_0201" model="account.account.template">
+            <field name="code">4000.0201</field>
+            <field name="name">Intereses sobre financiamiento</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_42"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4200_0002" model="account.account.template">
-            <field name="code">4200.0002</field>
+        <record id="account_account_template_GEN_4000_0202" model="account.account.template">
+            <field name="code">4000.0202</field>
+            <field name="name">Intereses por mora</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
+            <field name="user_type" ref="account.data_account_type_income"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_4000_0203" model="account.account.template">
+            <field name="code">4000.0203</field>
             <field name="name">Intereses bancarios</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_42"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4200_0003" model="account.account.template">
-            <field name="code">4200.0003</field>
+        <record id="account_account_template_GEN_4000_0204" model="account.account.template">
+            <field name="code">4000.0204</field>
             <field name="name">Diferencial cambiario</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_42"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4200_0004" model="account.account.template">
-            <field name="code">4200.0004</field>
-            <field name="name">Diferencias positivas en pago de clientes</field>
+        <record id="account_account_template_GEN_4000_0205" model="account.account.template">
+            <field name="code">4000.0205</field>
+            <field name="name">Diferencias positivas en cobro de clientes</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_42"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4200_0005" model="account.account.template">
-            <field name="code">4200.0005</field>
+        <record id="account_account_template_GEN_4000_0206" model="account.account.template">
+            <field name="code">4000.0206</field>
             <field name="name">Descuento por pronto pago a proveedores</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_42"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_02"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_49" model="account.account.template">
-            <field name="code">49</field>
+        <record id="account_account_template_GEN_4000_99" model="account.account.template">
+            <field name="code">4000.99</field>
             <field name="name">Otros ingresos</field>
             <field name="shortcut">O</field>
             <field name="parent_id" ref="account_account_template_GEN_4"/>
@@ -1809,22 +1798,22 @@
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4900_0001" model="account.account.template">
-            <field name="code">4900.0001</field>
+        <record id="account_account_template_GEN_4000_9901" model="account.account.template">
+            <field name="code">4000.9901</field>
             <field name="name">Venta de activos</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_49"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_99"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_4900_0009" model="account.account.template">
-            <field name="code">4900.0009</field>
+        <record id="account_account_template_GEN_4000_9999" model="account.account.template">
+            <field name="code">4000.9999</field>
             <field name="name">Otros ingresos</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_49"/>
+            <field name="parent_id" ref="account_account_template_GEN_4000_99"/>
             <field name="user_type" ref="account.data_account_type_income"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
@@ -1833,10 +1822,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5" model="account.account.template">
             <field name="code">5</field>
-            <field name="name">Costos y Gastos</field>
-            <field name="shortcut">G</field>
+            <field name="name">Costos</field>
+            <field name="shortcut">C</field>
             <field name="parent_id" ref="account_account_template_GEN_0"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="user_type" ref="account_account_type_view_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
@@ -1844,10 +1833,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_01" model="account.account.template">
             <field name="code">5000.01</field>
-            <field name="name">Costos operativos</field>
+            <field name="name">Operativos</field>
             <field name="shortcut">Op</field>
             <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="user_type" ref="account_account_type_view_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
@@ -1858,7 +1847,7 @@
             <field name="name">Costo de la mercadería vendida</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_goods"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1866,10 +1855,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0102" model="account.account.template">
             <field name="code">5000.0102</field>
-            <field name="name">Costo de importación</field>
+            <field name="name">Costo de envíos y fletes</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_goods"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1877,10 +1866,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0103" model="account.account.template">
             <field name="code">5000.0103</field>
-            <field name="name">Costo de envíos y fletes</field>
+            <field name="name">Costo de almacenamiento</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_goods"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1888,10 +1877,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0104" model="account.account.template">
             <field name="code">5000.0104</field>
-            <field name="name">Costo de almacenamiento</field>
+            <field name="name">Seguros sobre inventario</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_goods"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1899,10 +1888,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0105" model="account.account.template">
             <field name="code">5000.0105</field>
-            <field name="name">Costo de producción</field>
+            <field name="name">Costo de servicios subcontratados</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_production"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1910,10 +1899,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0106" model="account.account.template">
             <field name="code">5000.0106</field>
-            <field name="name">Costo de servicios subcontratados</field>
+            <field name="name">Insumos para la prestación de servicios</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_service"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1921,32 +1910,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0107" model="account.account.template">
             <field name="code">5000.0107</field>
-            <field name="name">Insumos para la prestación de servicios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_service"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0108" model="account.account.template">
-            <field name="code">5000.0108</field>
-            <field name="name">Costo por representación de productos o servicios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_service"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0109" model="account.account.template">
-            <field name="code">5000.0109</field>
             <field name="name">Pérdidas de inventario por daño o desperdicio</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_01"/>
-            <field name="user_type" ref="account_account_type_cost_goods"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1954,10 +1921,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_02" model="account.account.template">
             <field name="code">5000.02</field>
-            <field name="name">Recurso Humano</field>
-            <field name="shortcut">RH</field>
+            <field name="name">Venta</field>
+            <field name="shortcut">Ven</field>
             <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="user_type" ref="account_account_type_view_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
@@ -1965,10 +1932,10 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0201" model="account.account.template">
             <field name="code">5000.0201</field>
-            <field name="name">Salarios</field>
+            <field name="name">Comisiones sobre ventas</field>
             <field name="shortcut"></field>
             <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
@@ -1976,1091 +1943,1267 @@
 	 	 	 	 	 	 	 	 	 	 
         <record id="account_account_template_GEN_5000_0202" model="account.account.template">
             <field name="code">5000.0202</field>
-            <field name="name">Extras</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0203" model="account.account.template">
-            <field name="code">5000.0203</field>
-            <field name="name">Bonificaciones</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0204" model="account.account.template">
-            <field name="code">5000.0204</field>
-            <field name="name">Comisiones</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0205" model="account.account.template">
-            <field name="code">5000.0205</field>
-            <field name="name">Cargas patronales</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0206" model="account.account.template">
-            <field name="code">5000.0206</field>
-            <field name="name">Aguinaldo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0207" model="account.account.template">
-            <field name="code">5000.0207</field>
-            <field name="name">Preaviso</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0208" model="account.account.template">
-            <field name="code">5000.0208</field>
-            <field name="name">Cesantía</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0209" model="account.account.template">
-            <field name="code">5000.0209</field>
-            <field name="name">Póliza por riesgos de trabajo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0210" model="account.account.template">
-            <field name="code">5000.0210</field>
-            <field name="name">Asociación solidarista</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0211" model="account.account.template">
-            <field name="code">5000.0211</field>
-            <field name="name">Póliza por riesgos de trabajo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_03" model="account.account.template">
-            <field name="code">5000.03</field>
-            <field name="name">Planta física</field>
-            <field name="shortcut">Plan</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0301" model="account.account.template">
-            <field name="code">5000.0301</field>
-            <field name="name">Alquiler de oficinas, locales y bodegas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0302" model="account.account.template">
-            <field name="code">5000.0302</field>
-            <field name="name">Equipo y mobiliario de oficina</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0303" model="account.account.template">
-            <field name="code">5000.0303</field>
-            <field name="name">Limpieza</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0304" model="account.account.template">
-            <field name="code">5000.0304</field>
-            <field name="name">Mantenimiento de edificios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0305" model="account.account.template">
-            <field name="code">5000.0305</field>
-            <field name="name">Seguridad</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0306" model="account.account.template">
-            <field name="code">5000.0306</field>
-            <field name="name">Electricidad</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0307" model="account.account.template">
-            <field name="code">5000.0307</field>
-            <field name="name">Agua</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0308" model="account.account.template">
-            <field name="code">5000.0308</field>
-            <field name="name">Patentes municipales</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_03"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_04" model="account.account.template">
-            <field name="code">5000.04</field>
-            <field name="name">Servicios administrativos</field>
-            <field name="shortcut">Adm</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0401" model="account.account.template">
-            <field name="code">5000.0401</field>
-            <field name="name">Servicio de administración</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_04"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0402" model="account.account.template">
-            <field name="code">5000.0402</field>
-            <field name="name">Contabilidad</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_04"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0403" model="account.account.template">
-            <field name="code">5000.0403</field>
-            <field name="name">Reclutamiento</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_04"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0404" model="account.account.template">
-            <field name="code">5000.0404</field>
-            <field name="name">Asistencia legal</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_04"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0405" model="account.account.template">
-            <field name="code">5000.0405</field>
-            <field name="name">Mensajería</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_04"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_05" model="account.account.template">
-            <field name="code">5000.05</field>
-            <field name="name">Vehículos y transporte</field>
-            <field name="shortcut">Trans</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0501" model="account.account.template">
-            <field name="code">5000.0501</field>
-            <field name="name">Combustible</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0502" model="account.account.template">
-            <field name="code">5000.0502</field>
-            <field name="name">Transporte público</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0503" model="account.account.template">
-            <field name="code">5000.0503</field>
-            <field name="name">Peajes</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0504" model="account.account.template">
-            <field name="code">5000.0504</field>
-            <field name="name">Parqueo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0505" model="account.account.template">
-            <field name="code">5000.0505</field>
-            <field name="name">Kilometraje</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0506" model="account.account.template">
-            <field name="code">5000.0506</field>
-            <field name="name">Mantenimiento de vehículos</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_05"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_06" model="account.account.template">
-            <field name="code">5000.06</field>
-            <field name="name">Viáticos</field>
-            <field name="shortcut">Via</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0601" model="account.account.template">
-            <field name="code">5000.0601</field>
-            <field name="name">Transporte</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_06"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0602" model="account.account.template">
-            <field name="code">5000.0602</field>
-            <field name="name">Gastos de viaje</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_06"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0603" model="account.account.template">
-            <field name="code">5000.0603</field>
-            <field name="name">Alimentación</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_06"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0604" model="account.account.template">
-            <field name="code">5000.0604</field>
-            <field name="name">Hospedaje</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_06"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_07" model="account.account.template">
-            <field name="code">5000.07</field>
-            <field name="name">Tecnologías de infromación y comunicación</field>
-            <field name="shortcut">TI</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0701" model="account.account.template">
-            <field name="code">5000.0701</field>
-            <field name="name">Conexiones a Internet</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0702" model="account.account.template">
-            <field name="code">5000.0702</field>
-            <field name="name">Servicios en la nube y Hosting</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0703" model="account.account.template">
-            <field name="code">5000.0703</field>
-            <field name="name">Almacenamiento</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0704" model="account.account.template">
-            <field name="code">5000.0704</field>
-            <field name="name">Correo y mensajería electrónicos </field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0705" model="account.account.template">
-            <field name="code">5000.0705</field>
-            <field name="name">Telefonía</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0706" model="account.account.template">
-            <field name="code">5000.0706</field>
-            <field name="name">Equipo informático y de comnicaciones</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0707" model="account.account.template">
-            <field name="code">5000.0707</field>
-            <field name="name">Suministros de impresión</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0708" model="account.account.template">
-            <field name="code">5000.0708</field>
-            <field name="name">Soporte técnico</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0709" model="account.account.template">
-            <field name="code">5000.0709</field>
-            <field name="name">Software</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_07"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_08" model="account.account.template">
-            <field name="code">5000.08</field>
-            <field name="name">Herramientas y suministros de trabajo</field>
-            <field name="shortcut">Her</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0801" model="account.account.template">
-            <field name="code">5000.0801</field>
-            <field name="name">Uniformes</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_08"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0802" model="account.account.template">
-            <field name="code">5000.0802</field>
-            <field name="name">Suministros de oficina</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_08"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0803" model="account.account.template">
-            <field name="code">5000.0803</field>
-            <field name="name">Equipo y maquinaria</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_08"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0804" model="account.account.template">
-            <field name="code">5000.0804</field>
-            <field name="name">Herramientas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_08"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0805" model="account.account.template">
-            <field name="code">5000.0805</field>
-            <field name="name">Mantenimiento de equipo y herramientas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_08"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_09" model="account.account.template">
-            <field name="code">5000.09</field>
-            <field name="name">Atención a colaboradores y clientes</field>
-            <field name="shortcut">Aten</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0901" model="account.account.template">
-            <field name="code">5000.0901</field>
-            <field name="name">Alimentos y bebidas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0902" model="account.account.template">
-            <field name="code">5000.0902</field>
-            <field name="name">Suministros de aseo personal</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0903" model="account.account.template">
-            <field name="code">5000.0903</field>
-            <field name="name">Actividades y eventos</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0904" model="account.account.template">
-            <field name="code">5000.0904</field>
-            <field name="name">Obsequios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0905" model="account.account.template">
-            <field name="code">5000.0905</field>
-            <field name="name">Subscripción a diarios y revistas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_0906" model="account.account.template">
-            <field name="code">5000.0906</field>
-            <field name="name">Servicio de televisión</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_09"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_10" model="account.account.template">
-            <field name="code">5000.10</field>
-            <field name="name">Depreciaciones y amortizaciones</field>
-            <field name="shortcut">Dep</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1001" model="account.account.template">
-            <field name="code">5000.1001</field>
-            <field name="name">Depreciación de activos fijos</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_10"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1002" model="account.account.template">
-            <field name="code">5000.1002</field>
-            <field name="name">Amortización de activos intangibles</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_10"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_11" model="account.account.template">
-            <field name="code">5000.11</field>
-            <field name="name">Mercadeo</field>
-            <field name="shortcut">Merc</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1101" model="account.account.template">
-            <field name="code">5000.1101</field>
-            <field name="name">Artes y diseño gráfico</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1102" model="account.account.template">
-            <field name="code">5000.1102</field>
-            <field name="name">Producción de materiales publicitarios</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1103" model="account.account.template">
-            <field name="code">5000.1103</field>
-            <field name="name">Gestión de redes sociales y comunicación</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1104" model="account.account.template">
-            <field name="code">5000.1104</field>
-            <field name="name">Servicios profesionales de comunicación y mercadeo</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1105" model="account.account.template">
-            <field name="code">5000.1105</field>
-            <field name="name">Publicaciones y campañas</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1106" model="account.account.template">
-            <field name="code">5000.1106</field>
-            <field name="name">Eventos y actividades</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_11"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_12" model="account.account.template">
-            <field name="code">5000.12</field>
-            <field name="name">Gastos por venta</field>
-            <field name="shortcut">Ven</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
-            <field name="user_type" ref="account.account_type_expense_view1"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">view</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1201" model="account.account.template">
-            <field name="code">5000.1201</field>
-            <field name="name">CxC incobrables</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_12"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1202" model="account.account.template">
-            <field name="code">5000.1202</field>
             <field name="name">Descuentos por pronto pago</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_12"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="parent_id" ref="account_account_template_GEN_5000_02"/>
+            <field name="user_type" ref="account_account_type_cost"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1203" model="account.account.template">
-            <field name="code">5000.1203</field>
-            <field name="name">Comisiones sobre ventas</field>
+        <record id="account_account_template_GEN_6" model="account.account.template">
+            <field name="code">6</field>
+            <field name="name">Gastos</field>
+            <field name="shortcut">G</field>
+            <field name="parent_id" ref="account_account_template_GEN_0"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_01" model="account.account.template">
+            <field name="code">6000.01</field>
+            <field name="name">Recurso Humano</field>
+            <field name="shortcut">RH</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0101" model="account.account.template">
+            <field name="code">6000.0101</field>
+            <field name="name">Salarios</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_12"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_13" model="account.account.template">
-            <field name="code">5000.13</field>
+        <record id="account_account_template_GEN_6000_0102" model="account.account.template">
+            <field name="code">6000.0102</field>
+            <field name="name">Extras</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0103" model="account.account.template">
+            <field name="code">6000.0103</field>
+            <field name="name">Bonificaciones</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0104" model="account.account.template">
+            <field name="code">6000.0104</field>
+            <field name="name">Comisiones</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0105" model="account.account.template">
+            <field name="code">6000.0105</field>
+            <field name="name">Cargas patronales</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0106" model="account.account.template">
+            <field name="code">6000.0106</field>
+            <field name="name">Aguinaldos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0107" model="account.account.template">
+            <field name="code">6000.0107</field>
+            <field name="name">Cesantías y liquidaciones</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0108" model="account.account.template">
+            <field name="code">6000.0108</field>
+            <field name="name">Asociación solidarista</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0109" model="account.account.template">
+            <field name="code">6000.0109</field>
+            <field name="name">Póliza por riesgos del trabajo</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0110" model="account.account.template">
+            <field name="code">6000.0110</field>
+            <field name="name">Seguros médicos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_01"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_02" model="account.account.template">
+            <field name="code">6000.02</field>
             <field name="name">Educación y entrenamiento</field>
             <field name="shortcut">Ed</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
             <field name="user_type" ref="account.account_type_expense_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1301" model="account.account.template">
-            <field name="code">5000.1301</field>
-            <field name="name">Cursos y capacitación</field>
+        <record id="account_account_template_GEN_6000_0201" model="account.account.template">
+            <field name="code">6000.0201</field>
+            <field name="name">Cursos y capacitaciones</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_13"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_02"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1302" model="account.account.template">
-            <field name="code">5000.1302</field>
-            <field name="name">Libros y otros materiales</field>
+        <record id="account_account_template_GEN_6000_0202" model="account.account.template">
+            <field name="code">6000.0202</field>
+            <field name="name">Materiales educativos y de entrenamiento</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_13"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_02"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_14" model="account.account.template">
-            <field name="code">5000.14</field>
-            <field name="name">Seguros</field>
-            <field name="shortcut">Seg</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
+        <record id="account_account_template_GEN_6000_03" model="account.account.template">
+            <field name="code">6000.03</field>
+            <field name="name">Planta física</field>
+            <field name="shortcut">Plan</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
             <field name="user_type" ref="account.account_type_expense_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1401" model="account.account.template">
-            <field name="code">5000.1401</field>
-            <field name="name">Seguro médico</field>
+        <record id="account_account_template_GEN_6000_0301" model="account.account.template">
+            <field name="code">6000.0301</field>
+            <field name="name">Alquiler de oficinas, locales y bodegas</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_14"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1402" model="account.account.template">
-            <field name="code">5000.1402</field>
-            <field name="name">Seguro de accidentes</field>
+        <record id="account_account_template_GEN_6000_0302" model="account.account.template">
+            <field name="code">6000.0302</field>
+            <field name="name">Equipo y mobiliario de oficina</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_14"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1403" model="account.account.template">
-            <field name="code">5000.1403</field>
-            <field name="name">Seguro de equipo</field>
+        <record id="account_account_template_GEN_6000_0303" model="account.account.template">
+            <field name="code">6000.0303</field>
+            <field name="name">Servicios de limpieza</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_14"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1404" model="account.account.template">
-            <field name="code">5000.1404</field>
-            <field name="name">Seguro de inmueble</field>
+        <record id="account_account_template_GEN_6000_0304" model="account.account.template">
+            <field name="code">6000.0304</field>
+            <field name="name">Suministros de limpieza</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_14"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1405" model="account.account.template">
-            <field name="code">5000.1405</field>
-            <field name="name">Seguro de inventario</field>
+        <record id="account_account_template_GEN_6000_0305" model="account.account.template">
+            <field name="code">6000.0305</field>
+            <field name="name">Servicios de mantenimiento de edificios</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_14"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_15" model="account.account.template">
-            <field name="code">5000.15</field>
+        <record id="account_account_template_GEN_6000_0306" model="account.account.template">
+            <field name="code">6000.0306</field>
+            <field name="name">Suministros de mantenimiento de edificios</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0307" model="account.account.template">
+            <field name="code">6000.0307</field>
+            <field name="name">Servicios de seguridad</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0308" model="account.account.template">
+            <field name="code">6000.0308</field>
+            <field name="name">Electricidad</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0309" model="account.account.template">
+            <field name="code">6000.0309</field>
+            <field name="name">Agua</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0310" model="account.account.template">
+            <field name="code">6000.0310</field>
+            <field name="name">Patentes municipales</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0311" model="account.account.template">
+            <field name="code">6000.0311</field>
+            <field name="name">Seguros patrimoniales</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_03"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_04" model="account.account.template">
+            <field name="code">6000.04</field>
+            <field name="name">Servicios administrativos</field>
+            <field name="shortcut">Adm</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0401" model="account.account.template">
+            <field name="code">6000.0401</field>
+            <field name="name">Servicios de administración</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_04"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0402" model="account.account.template">
+            <field name="code">6000.0402</field>
+            <field name="name">Servicios de contabilidad</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_04"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0403" model="account.account.template">
+            <field name="code">6000.0403</field>
+            <field name="name">Servicios de RH</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_04"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0404" model="account.account.template">
+            <field name="code">6000.0404</field>
+            <field name="name">Servicios legales</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_04"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0405" model="account.account.template">
+            <field name="code">6000.0405</field>
+            <field name="name">Servicios de mensajería</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_04"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_05" model="account.account.template">
+            <field name="code">6000.05</field>
+            <field name="name">Vehículos y transporte</field>
+            <field name="shortcut">Trans</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0501" model="account.account.template">
+            <field name="code">6000.0501</field>
+            <field name="name">Alqiuler de vehículos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0502" model="account.account.template">
+            <field name="code">6000.0502</field>
+            <field name="name">Combustibles</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0503" model="account.account.template">
+            <field name="code">6000.0503</field>
+            <field name="name">Transporte público</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0504" model="account.account.template">
+            <field name="code">6000.0504</field>
+            <field name="name">Peajes</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0505" model="account.account.template">
+            <field name="code">6000.0505</field>
+            <field name="name">Parqueos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0506" model="account.account.template">
+            <field name="code">6000.0506</field>
+            <field name="name">Kilometraje</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0507" model="account.account.template">
+            <field name="code">6000.0507</field>
+            <field name="name">Mantenimiento de vehículos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0508" model="account.account.template">
+            <field name="code">6000.0508</field>
+            <field name="name">Seguros vehiculares</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_05"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_06" model="account.account.template">
+            <field name="code">6000.06</field>
+            <field name="name">Viáticos</field>
+            <field name="shortcut">Via</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0601" model="account.account.template">
+            <field name="code">6000.0601</field>
+            <field name="name">Transporte</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_06"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0602" model="account.account.template">
+            <field name="code">6000.0602</field>
+            <field name="name">Hospedaje</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_06"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0603" model="account.account.template">
+            <field name="code">6000.0603</field>
+            <field name="name">Alimentación</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_06"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0699" model="account.account.template">
+            <field name="code">6000.0699</field>
+            <field name="name">Otros gastos de viaje</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_06"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_07" model="account.account.template">
+            <field name="code">6000.07</field>
+            <field name="name">Tecnologías de información y comunicación</field>
+            <field name="shortcut">TI</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0701" model="account.account.template">
+            <field name="code">6000.0701</field>
+            <field name="name">Conexiones a Internet</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0702" model="account.account.template">
+            <field name="code">6000.0702</field>
+            <field name="name">Servicios en la nube y hospedaje</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0703" model="account.account.template">
+            <field name="code">6000.0703</field>
+            <field name="name">Almacenamiento</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0704" model="account.account.template">
+            <field name="code">6000.0704</field>
+            <field name="name">Correo y mensajería electrónicos </field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0705" model="account.account.template">
+            <field name="code">6000.0705</field>
+            <field name="name">Telefonía</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0706" model="account.account.template">
+            <field name="code">6000.0706</field>
+            <field name="name">Equipo informático y de comunicaciones</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0707" model="account.account.template">
+            <field name="code">6000.0707</field>
+            <field name="name">Soporte técnico</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0708" model="account.account.template">
+            <field name="code">6000.0708</field>
+            <field name="name">Software</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_07"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_08" model="account.account.template">
+            <field name="code">6000.08</field>
+            <field name="name">Herramientas y suministros de trabajo</field>
+            <field name="shortcut">HS</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0801" model="account.account.template">
+            <field name="code">6000.0801</field>
+            <field name="name">Uniformes</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0802" model="account.account.template">
+            <field name="code">6000.0802</field>
+            <field name="name">Suministros de oficina</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0803" model="account.account.template">
+            <field name="code">6000.0803</field>
+            <field name="name">Equipo y maquinaria</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0804" model="account.account.template">
+            <field name="code">6000.0804</field>
+            <field name="name">Herramientas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0805" model="account.account.template">
+            <field name="code">6000.0805</field>
+            <field name="name">Mantenimiento de equipo y herramientas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0806" model="account.account.template">
+            <field name="code">6000.0806</field>
+            <field name="name">Seguro sobre equipo y herramientas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_08"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_09" model="account.account.template">
+            <field name="code">6000.09</field>
+            <field name="name">Atención a colaboradores y clientes</field>
+            <field name="shortcut">Aten</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0901" model="account.account.template">
+            <field name="code">6000.0901</field>
+            <field name="name">Alimentos y bebidas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0902" model="account.account.template">
+            <field name="code">6000.0902</field>
+            <field name="name">Suministros de aseo personal</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0903" model="account.account.template">
+            <field name="code">6000.0903</field>
+            <field name="name">Actividades y eventos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0904" model="account.account.template">
+            <field name="code">6000.0904</field>
+            <field name="name">Obsequios</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0905" model="account.account.template">
+            <field name="code">6000.0905</field>
+            <field name="name">Subscripción a diarios y revistas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_0906" model="account.account.template">
+            <field name="code">6000.0906</field>
+            <field name="name">Servicio de televisión</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_09"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_10" model="account.account.template">
+            <field name="code">6000.10</field>
+            <field name="name">Depreciaciones y amortizaciones</field>
+            <field name="shortcut">Dep</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1001" model="account.account.template">
+            <field name="code">6000.1001</field>
+            <field name="name">Edificios</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1002" model="account.account.template">
+            <field name="code">6000.1002</field>
+            <field name="name">Vehículos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1003" model="account.account.template">
+            <field name="code">6000.1003</field>
+            <field name="name">Maquinaria</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1004" model="account.account.template">
+            <field name="code">6000.1004</field>
+            <field name="name">Mobiliario y equipo de oficina</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1005" model="account.account.template">
+            <field name="code">6000.1005</field>
+            <field name="name">Equipo informático y de comunicaciones</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1006" model="account.account.template">
+            <field name="code">6000.1006</field>
+            <field name="name">Herramientas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1007" model="account.account.template">
+            <field name="code">6000.1007</field>
+            <field name="name">Software</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_10"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_11" model="account.account.template">
+            <field name="code">6000.11</field>
+            <field name="name">Mercadeo</field>
+            <field name="shortcut">Merc</field>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
+            <field name="user_type" ref="account.account_type_expense_view1"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1101" model="account.account.template">
+            <field name="code">6000.1101</field>
+            <field name="name">Artes y diseño gráfico</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1102" model="account.account.template">
+            <field name="code">6000.1102</field>
+            <field name="name">Producción de materiales publicitarios</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1103" model="account.account.template">
+            <field name="code">6000.1103</field>
+            <field name="name">Servicios de mercadeo digital</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1104" model="account.account.template">
+            <field name="code">6000.1104</field>
+            <field name="name">Servicios profesionales de mercadeo y publicidad</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1105" model="account.account.template">
+            <field name="code">6000.1105</field>
+            <field name="name">Pauta publicitaria</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1106" model="account.account.template">
+            <field name="code">6000.1106</field>
+            <field name="name">Eventos y actividades</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1107" model="account.account.template">
+            <field name="code">6000.1107</field>
+            <field name="name">Representación de marcas y fabricantes</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_11"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_12" model="account.account.template">
+            <field name="code">6000.12</field>
             <field name="name">Gastos Financieros</field>
             <field name="shortcut">F</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
             <field name="user_type" ref="account.account_type_expense_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1501" model="account.account.template">
-            <field name="code">5000.1501</field>
-            <field name="name">Comisiones bancarias</field>
+        <record id="account_account_template_GEN_6000_1201" model="account.account.template">
+            <field name="code">6000.1201</field>
+            <field name="name">Comisiones y gastos bancarios</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1502" model="account.account.template">
-            <field name="code">5000.1502</field>
+        <record id="account_account_template_GEN_6000_1202" model="account.account.template">
+            <field name="code">6000.1202</field>
+            <field name="name">Comisiones de datáfonos</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1203" model="account.account.template">
+            <field name="code">6000.1203</field>
             <field name="name">Intereses de créditos a corto plazo</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1503" model="account.account.template">
-            <field name="code">5000.1503</field>
-            <field name="name">Intereses de otros créditos</field>
+        <record id="account_account_template_GEN_6000_1204" model="account.account.template">
+            <field name="code">6000.1204</field>
+            <field name="name">Intereses de tarjetas de crédito</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1504" model="account.account.template">
-            <field name="code">5000.1504</field>
-            <field name="name">Seguros de tarjetas</field>
+        <record id="account_account_template_GEN_6000_1205" model="account.account.template">
+            <field name="code">6000.1205</field>
+            <field name="name">Intereses de otros pasivos</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1505" model="account.account.template">
-            <field name="code">5000.1505</field>
+        <record id="account_account_template_GEN_6000_1206" model="account.account.template">
+            <field name="code">6000.1206</field>
+            <field name="name">Seguros sobre créditos y tarjetas</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1207" model="account.account.template">
+            <field name="code">6000.1207</field>
             <field name="name">Diferencial cambiario</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_1506" model="account.account.template">
-            <field name="code">5000.1506</field>
+        <record id="account_account_template_GEN_6000_1208" model="account.account.template">
+            <field name="code">6000.1208</field>
+            <field name="name">Diferencias negativas en cobro de clientes</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_1209" model="account.account.template">
+            <field name="code">6000.1209</field>
             <field name="name">Intereses por mora</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_15"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_90" model="account.account.template">
-            <field name="code">5000.90</field>
+        <record id="account_account_template_GEN_6000_1210" model="account.account.template">
+            <field name="code">6000.1210</field>
+            <field name="name">CxC incobrables</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_12"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_90" model="account.account.template">
+            <field name="code">6000.90</field>
             <field name="name">Otros gastos</field>
             <field name="shortcut">Ot</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
             <field name="user_type" ref="account.account_type_expense_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9001" model="account.account.template">
-            <field name="code">5000.9001</field>
+        <record id="account_account_template_GEN_6000_9001" model="account.account.template">
+            <field name="code">6000.9001</field>
             <field name="name">Perdida por robo</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_90"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_90"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9002" model="account.account.template">
-            <field name="code">5000.9002</field>
+        <record id="account_account_template_GEN_6000_9002" model="account.account.template">
+            <field name="code">6000.9002</field>
             <field name="name">Donaciones deducibles</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_90"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_90"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9003" model="account.account.template">
-            <field name="code">5000.9003</field>
+        <record id="account_account_template_GEN_6000_9003" model="account.account.template">
+            <field name="code">6000.9003</field>
             <field name="name">Impuestos y especies fiscales</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_90"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_90"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9004" model="account.account.template">
-            <field name="code">5000.9004</field>
-            <field name="name">Diferencias negativas en pago de clientes</field>
-            <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_90"/>
-            <field name="user_type" ref="account.data_account_type_expense"/>
-            <field name="currency_id" ref=""/>
-            <field name="type">other</field>
-            <field name="reconcile" eval="False"/>
-        </record>
-	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_99" model="account.account.template">
-            <field name="code">5000.99</field>
+        <record id="account_account_template_GEN_6000_99" model="account.account.template">
+            <field name="code">6000.99</field>
             <field name="name">Gastos no deducibles</field>
             <field name="shortcut">NoDed</field>
-            <field name="parent_id" ref="account_account_template_GEN_5"/>
+            <field name="parent_id" ref="account_account_template_GEN_6"/>
             <field name="user_type" ref="account.account_type_expense_view1"/>
             <field name="currency_id" ref=""/>
             <field name="type">view</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9901" model="account.account.template">
-            <field name="code">5000.9901</field>
+        <record id="account_account_template_GEN_6000_9901" model="account.account.template">
+            <field name="code">6000.9901</field>
             <field name="name">Donaciones no deducibles</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_99"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_99"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9902" model="account.account.template">
-            <field name="code">5000.9902</field>
+        <record id="account_account_template_GEN_6000_9902" model="account.account.template">
+            <field name="code">6000.9902</field>
             <field name="name">Multas</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_99"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_99"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
-        <record id="account_account_template_GEN_5000_9903" model="account.account.template">
-            <field name="code">5000.9903</field>
+        <record id="account_account_template_GEN_6000_9903" model="account.account.template">
+            <field name="code">6000.9903</field>
             <field name="name">Agasajos y celebraciones</field>
             <field name="shortcut"></field>
-            <field name="parent_id" ref="account_account_template_GEN_5000_99"/>
+            <field name="parent_id" ref="account_account_template_GEN_6000_99"/>
             <field name="user_type" ref="account.data_account_type_expense"/>
             <field name="currency_id" ref=""/>
             <field name="type">other</field>
             <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_6000_9904" model="account.account.template">
+            <field name="code">6000.9904</field>
+            <field name="name">Impuesto sobre la renta</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_6000_99"/>
+            <field name="user_type" ref="account.data_account_type_expense"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_7" model="account.account.template">
+            <field name="code">7</field>
+            <field name="name">Cuentas Transitorias</field>
+            <field name="shortcut">T</field>
+            <field name="parent_id" ref="account_account_template_GEN_0"/>
+            <field name="user_type" ref="account_account_type_view_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_71" model="account.account.template">
+            <field name="code">71</field>
+            <field name="name">Tesorería</field>
+            <field name="shortcut">Tes</field>
+            <field name="parent_id" ref="account_account_template_GEN_7"/>
+            <field name="user_type" ref="account_account_type_view_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_7100_0001" model="account.account.template">
+            <field name="code">7100.0001</field>
+            <field name="name">Cambio de moneda</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_71"/>
+            <field name="user_type" ref="account_account_type_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_72" model="account.account.template">
+            <field name="code">72</field>
+            <field name="name">Operación</field>
+            <field name="shortcut">Op</field>
+            <field name="parent_id" ref="account_account_template_GEN_7"/>
+            <field name="user_type" ref="account_account_type_view_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_7200_0001" model="account.account.template">
+            <field name="code">7200.0001</field>
+            <field name="name">Costo de importación</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_72"/>
+            <field name="user_type" ref="account_account_type_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_7200_0002" model="account.account.template">
+            <field name="code">7200.0002</field>
+            <field name="name">Costo de producción</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_72"/>
+            <field name="user_type" ref="account_account_type_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_73" model="account.account.template">
+            <field name="code">73</field>
+            <field name="name">Apertura</field>
+            <field name="shortcut">Ap</field>
+            <field name="parent_id" ref="account_account_template_GEN_7"/>
+            <field name="user_type" ref="account_account_type_view_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">view</field>
+            <field name="reconcile" eval="False"/>
+        </record>
+	 	 	 	 	 	 	 	 	 	 
+        <record id="account_account_template_GEN_7300_0001" model="account.account.template">
+            <field name="code">7300.0001</field>
+            <field name="name">Balance de apertura</field>
+            <field name="shortcut"></field>
+            <field name="parent_id" ref="account_account_template_GEN_73"/>
+            <field name="user_type" ref="account_account_type_transit"/>
+            <field name="currency_id" ref=""/>
+            <field name="type">other</field>
+            <field name="reconcile" eval="True"/>
         </record>
 	 	 	 	 	 	 	 	 	 	 
 										    </data>
