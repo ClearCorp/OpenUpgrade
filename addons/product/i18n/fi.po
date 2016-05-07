@@ -5,13 +5,14 @@
 # Translators:
 # Atte Isopuro <atte.isopuro@web-veistamo.fi>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
-# Kari Lindgren <kari.lindgren@emsystems.fi>, 2015
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2015-2016
+# Kari Lindgren <kari.lindgren@emsystems.fi>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-09-06 08:48+0000\n"
+"PO-Revision-Date: 2016-04-11 14:09+0000\n"
 "Last-Translator: Kari Lindgren <kari.lindgren@emsystems.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/odoo/odoo-8/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +78,7 @@ msgid ""
 "                1TB hard drive1\n"
 "                Intel Iris Pro graphics\n"
 "            "
-msgstr ""
+msgstr "2.7GHz quad-core Intel Core i5\n                Turbo Boost up to 3.2GHz\n                8GB (two 4GB) memory\n                1TB hard drive1\n                Intel Iris Pro graphics\n            "
 
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_2
@@ -93,7 +94,7 @@ msgid ""
 "7.9‑inch (diagonal) LED-backlit, 128Gb\n"
 "Dual-core A5 with quad-core graphics\n"
 "FaceTime HD Camera, 1.2 MP Photos"
-msgstr ""
+msgstr "7.9‑inch (diagonal) LED-backlit, 128Gb\nDual-core A5 with quad-core graphics\nFaceTime HD Camera, 1.2 MP Photos"
 
 #. module: product
 #: view:product.template:product.product_template_only_form_view
@@ -786,7 +787,7 @@ msgstr "Monitoimilaite: nopea tulostin, faksi ja skanneri"
 #. module: product
 #: model:product.category,name:product.accessories
 msgid "Apple Accessories"
-msgstr ""
+msgstr "Apple Lisälaitteet"
 
 #. module: product
 #: model:product.template,name:product.product_product_7_product_template
@@ -796,12 +797,12 @@ msgstr ""
 #. module: product
 #: model:product.category,name:product.apple
 msgid "Apple Products"
-msgstr ""
+msgstr "Apple tuotteet"
 
 #. module: product
 #: model:product.template,name:product.product_product_9_product_template
 msgid "Apple Wireless Keyboard"
-msgstr ""
+msgstr "Apple langaton näppäimistö"
 
 #. module: product
 #: model:product.template,name:product.product_assembly_product_template
@@ -835,7 +836,7 @@ msgstr "Attribuutti"
 #. module: product
 #: field:product.attribute.value,price_extra:0
 msgid "Attribute Price Extra"
-msgstr ""
+msgstr "Attribuutin hintalisä"
 
 #. module: product
 #: field:product.attribute.value,price_ids:0
@@ -846,7 +847,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:product.variants_action
 #: model:ir.ui.menu,name:product.menu_variants_action
 msgid "Attribute Values"
-msgstr ""
+msgstr "Attribuuttien arvot"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.attribute_action
@@ -1038,7 +1039,7 @@ msgstr "Komponentit"
 #. module: product
 #: model:product.template,name:product.product_product_16_product_template
 msgid "Computer Case"
-msgstr ""
+msgstr "Tietokonelaukku"
 
 #. module: product
 #: model:product.public.category,name:product.Computer_all_in_one
@@ -1234,7 +1235,7 @@ msgstr "Aseta näyttöjärjestys"
 #. module: product
 #: model:product.public.category,name:product.devices
 msgid "Devices"
-msgstr ""
+msgstr "Laitteet"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_dozen
@@ -1328,7 +1329,7 @@ msgstr "Ulkoiset laitteet"
 #. module: product
 #: model:product.public.category,name:product.External_Hard_Drive
 msgid "External Hard Drive"
-msgstr ""
+msgstr "Ulkoinen kiintolevy"
 
 #. module: product
 #: model:product.template,name:product.product_product_28_product_template
@@ -1403,7 +1404,7 @@ msgstr "Antaa järjestyksen näytettäessä tuoteryhmäluettelon."
 #. module: product
 #: model:product.template,name:product.product_product_44_product_template
 msgid "GrapWorks Software"
-msgstr ""
+msgstr "GrapWorks ohjelmisto"
 
 #. module: product
 #: model:product.public.category,name:product.graphics_card
@@ -1445,12 +1446,12 @@ msgstr "Handsfree kuulokeet läppärille, sisäinen mikrofoni ja kuulokeliitin."
 #. module: product
 #: model:product.public.category,name:product.HDD
 msgid "Hard Drive"
-msgstr ""
+msgstr "Kiintolevy"
 
 #. module: product
 #: model:product.public.category,name:product.Headset
 msgid "Headset"
-msgstr ""
+msgstr "Kuulokkeet"
 
 #. module: product
 #: model:product.template,name:product.product_product_33_product_template
@@ -1574,14 +1575,14 @@ msgstr ""
 msgid ""
 "Image of the product variant (Medium-sized image of product template if "
 "false)."
-msgstr ""
+msgstr "Tuotevariantin kuva (jos ei määritetty, käytetään tuotemallin keskikokoista kuvaa)."
 
 #. module: product
 #: help:product.product,image_small:0
 msgid ""
 "Image of the product variant (Small-sized image of product template if "
 "false)."
-msgstr ""
+msgstr "Tuotevariantin kuva (jos ei määritetty, käytetään tuotemallin pientä kuvaa)."
 
 #. module: product
 #: selection:product.template,state:0
@@ -1607,7 +1608,7 @@ msgstr "Mustekasetti"
 #: code:addons/product/product.py:397
 #, python-format
 msgid "Integrity Error!"
-msgstr ""
+msgstr "Eheysvirhe!"
 
 #. module: product
 #: model:product.category,name:product.product_category_2
@@ -1638,12 +1639,12 @@ msgstr "Inventaario"
 #. module: product
 #: model:product.category,name:product.ipad
 msgid "Ipad"
-msgstr ""
+msgstr "Ipad"
 
 #. module: product
 #: model:product.category,name:product.ipod
 msgid "Ipod"
-msgstr ""
+msgstr "Ipod"
 
 #. module: product
 #: field:product.product,message_is_follower:0
@@ -1660,7 +1661,7 @@ msgstr "On tuotteen muunnelma"
 #. module: product
 #: view:product.pricelist.version:product.product_pricelist_version_form_view
 msgid "Item List"
-msgstr ""
+msgstr "Hinnaston merkinnät"
 
 #. module: product
 #: field:product.pricelist.type,key:0
@@ -1670,7 +1671,7 @@ msgstr "Avain"
 #. module: product
 #: model:product.public.category,name:product.Keyboard_Mouse
 msgid "Keyboard / Mouse"
-msgstr ""
+msgstr "Näppäimistö / Hiiri"
 
 #. module: product
 #: model:product.template,name:product.product_product_27_product_template
@@ -1690,7 +1691,7 @@ msgstr "Läppäri S3450"
 #. module: product
 #: model:product.public.category,name:product.laptops
 msgid "Laptops"
-msgstr ""
+msgstr "Kannettavat"
 
 #. module: product
 #: field:product.product,message_last_post:0
@@ -1746,7 +1747,7 @@ msgid ""
 "Lead time in days between the confirmation of the purchase order and the "
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
-msgstr ""
+msgstr "Ostotilauksen hyväksymisen ja tuotteiden varastoon saapumisen välinen aika päivissä. Käytetään automaattisessa ostotilausten suunnittelussa."
 
 #. module: product
 #: field:product.category,parent_left:0
@@ -1847,13 +1848,13 @@ msgid ""
 "Medium-sized image of the product. It is automatically resized as a "
 "128x128px image, with aspect ratio preserved, only when the image exceeds "
 "one of those sizes. Use this field in form views or some kanban views."
-msgstr ""
+msgstr "Keskisuuri kuva tuotteesta. Kuva skaalataan automaattisesti 128x128px kokoiseksi, säilyttäen kuvasuhteen, jos kuva on liian suuri. Käytä tätä kenttää lomake-näkymissä ja joissain Kanban-näkymissä."
 
 #. module: product
 #: model:product.attribute,name:product.product_attribute_1
 #: model:product.public.category,name:product.Memory
 msgid "Memory"
-msgstr ""
+msgstr "Muisti"
 
 #. module: product
 #: field:product.product,message_ids:0 field:product.template,message_ids:0
@@ -1893,7 +1894,7 @@ msgstr ""
 #. module: product
 #: model:product.public.category,name:product.motherboard
 msgid "Motherboard"
-msgstr ""
+msgstr "Emolevy"
 
 #. module: product
 #: model:product.template,name:product.product_product_21_product_template
@@ -1941,7 +1942,7 @@ msgstr "Nettopaino"
 #. module: product
 #: model:product.public.category,name:product.network
 msgid "Network"
-msgstr ""
+msgstr "Verkko"
 
 #. module: product
 #: view:product.pricelist.item:product.product_pricelist_item_form_view
@@ -2252,7 +2253,7 @@ msgstr "Tulostuspäivämäärä"
 #. module: product
 #: model:product.public.category,name:product.printer
 msgid "Printer"
-msgstr ""
+msgstr "Tulostin"
 
 #. module: product
 #: model:product.template,name:product.product_product_37_product_template
@@ -2262,7 +2263,7 @@ msgstr "Tulostin, All-in.one"
 #. module: product
 #: model:product.public.category,name:product.processor
 msgid "Processor"
-msgstr ""
+msgstr "Prosessori"
 
 #. module: product
 #: model:product.template,name:product.product_product_23_product_template
@@ -2603,7 +2604,7 @@ msgstr "Myyntihinnastot"
 #. module: product
 #: model:product.public.category,name:product.Screen
 msgid "Screen"
-msgstr ""
+msgstr "Näyttö"
 
 #. module: product
 #: help:product.template,categ_id:0
@@ -2620,7 +2621,7 @@ msgstr "Sarja"
 #. module: product
 #: model:product.public.category,name:product.server
 msgid "Server"
-msgstr ""
+msgstr "Palvelin"
 
 #. module: product
 #: model:product.template,name:product.product_product_consultant_product_template
@@ -2670,7 +2671,7 @@ msgstr "Ohjelmisto"
 #. module: product
 #: model:product.public.category,name:product.Speakers
 msgid "Speakers"
-msgstr ""
+msgstr "Kaiuttimet"
 
 #. module: product
 #: help:product.pricelist.item,categ_id:0
@@ -2804,12 +2805,12 @@ msgstr "Toimittajat"
 #. module: product
 #: model:product.public.category,name:product.Switch
 msgid "Switch"
-msgstr ""
+msgstr "Kytkin"
 
 #. module: product
 #: model:product.template,name:product.product_product_47_product_template
 msgid "Switch, 24 ports"
-msgstr ""
+msgstr "Kytkin, 24 porttinen"
 
 #. module: product
 #: field:product.product,name_template:0
@@ -2878,7 +2879,7 @@ msgstr "Pienin määrä joka ostetaan tältä toimittajalta. Mittayksikkönä to
 msgid ""
 "The minimal quantity to trigger this rule, expressed in the supplier Unit of"
 " Measure if any or in the default Unit of Measure of the product otherrwise."
-msgstr ""
+msgstr "Pienin määrä joka laukaisee säännön. Annetaan toimittajan mittayksikössä jos sellainen on määritelty, muutoin käytetään tuotteen oletusmittayksikköä."
 
 #. module: product
 #: help:product.template,weight_net:0
@@ -2901,7 +2902,7 @@ msgstr "Pakkausten määrä kerroksittain"
 msgid ""
 "The operation cannot be completed:\n"
 "You trying to delete an attribute value with a reference on a product variant."
-msgstr ""
+msgstr "Toimintoa ei voida suorittaa.\nYrität poistaa ominaisuutta joka viittaa tuotteen muunnelmaan."
 
 #. module: product
 #: view:product.supplierinfo:product.product_supplierinfo_form_view
@@ -2940,7 +2941,7 @@ msgstr "Pakkauksen leveys"
 #. module: product
 #: sql_constraint:product.attribute.value:0
 msgid "This attribute value already exists !"
-msgstr ""
+msgstr "Ominaisuuden vaihtoehto on jo olemassa!"
 
 #. module: product
 #: help:product.supplierinfo,product_uom:0
@@ -3145,17 +3146,17 @@ msgstr "Vaihteleva"
 #. module: product
 #: field:product.product,price_extra:0
 msgid "Variant Extra Price"
-msgstr ""
+msgstr "Variaation hintalisä"
 
 #. module: product
 #: field:product.product,image_variant:0
 msgid "Variant Image"
-msgstr ""
+msgstr "Variantin kuva"
 
 #. module: product
 #: view:product.template:product.product_template_only_form_view
 msgid "Variant Prices"
-msgstr ""
+msgstr "Varianttien hinnat"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.variants_template_action
@@ -3163,7 +3164,7 @@ msgstr ""
 #: view:product.attribute.value:product.variants_template_tree_view
 #: view:product.attribute.value:product.variants_tree_view
 msgid "Variant Values"
-msgstr ""
+msgstr "Varianttien arvot"
 
 #. module: product
 #: field:product.attribute.value,product_ids:0
@@ -3230,12 +3231,12 @@ msgstr "Kun hinnaston versiosta tehdään kopio, asetetaan se ei-aktiiviseksi jo
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_3
 msgid "White"
-msgstr ""
+msgstr "Valkoinen"
 
 #. module: product
 #: model:product.attribute,name:product.product_attribute_3
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #. module: product
 #: field:product.ul,width:0
@@ -3302,22 +3303,22 @@ msgstr ""
 #. module: product
 #: model:product.uom,name:product.product_uom_foot
 msgid "foot(ft)"
-msgstr ""
+msgstr "jalka(ft)"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_gal
 msgid "gal(s)"
-msgstr ""
+msgstr "gallona(s)"
 
 #. module: product
 #: model:product.template,name:product.product_product_8_product_template
 msgid "iMac"
-msgstr ""
+msgstr "iMac"
 
 #. module: product
 #: model:product.template,name:product.product_product_6_product_template
 msgid "iPad Mini"
-msgstr ""
+msgstr "iPad Mini"
 
 #. module: product
 #: model:product.template,name:product.product_product_4_product_template
@@ -3325,18 +3326,18 @@ msgstr ""
 #: model:product.template,name:product.product_product_4c_product_template
 #: model:product.template,name:product.product_product_4d_product_template
 msgid "iPad Retina Display"
-msgstr ""
+msgstr "iPad Retina näyttö"
 
 #. module: product
 #: model:product.template,name:product.product_product_11_product_template
 #: model:product.template,name:product.product_product_11b_product_template
 msgid "iPod"
-msgstr ""
+msgstr "iPod"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_inch
 msgid "inch(es)"
-msgstr ""
+msgstr "Tuuma(a)"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_kgm
@@ -3356,7 +3357,7 @@ msgstr ""
 #. module: product
 #: model:product.uom,name:product.product_uom_mile
 msgid "mile(s)"
-msgstr ""
+msgstr "maili(a)"
 
 #. module: product
 #: view:product.template:product.product_template_form_view
