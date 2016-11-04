@@ -749,21 +749,7 @@ class account_voucher(osv.osv):
                     #if the invoice linked to the voucher line is equal to the invoice_id in context
                     #then we assign the amount on that line, whatever the other voucher lines
                     move_lines_found.append(line.id)
-            elif line.currency_id and currency_id == line.currency_id.id:
-                if line.amount_residual_currency == price:
-                    move_lines_found.append(line.id)
-                    break
-                total_credit += line.credit and line.amount_currency or 0.0
-                total_debit += line.debit and line.amount_currency or 0.0
-            elif line.currency_id and currency_id != line.currency_id.id:
-                amount_original = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_currency), context=context_multi_currency)
-                amount_unreconciled = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_residual_currency), context=context_multi_currency)
-                if amount_unreconciled == price:
-                    move_lines_found.append(line.id)
-                    break
-                total_credit += line.credit and amount_original or 0.0
-                total_debit += line.debit and amount_original or 0.0
-            else:
+            elif not line.currency_id:
                 #otherwise treatments is the same but with other field names
                 if line.amount_residual == price:
                     #if the amount residual is equal the amount voucher, we assign it to that voucher
@@ -773,6 +759,20 @@ class account_voucher(osv.osv):
                 #otherwise we will split the voucher amount on each line (by most old first)
                 total_credit += line.credit or 0.0
                 total_debit += line.debit or 0.0
+            elif currency_id == line.currency_id.id:
+                if line.amount_residual_currency == price:
+                    move_lines_found.append(line.id)
+                    break
+                total_credit += line.credit and line.amount_currency or 0.0
+                total_debit += line.debit and line.amount_currency or 0.0
+            elif currency_id != line.currency_id.id:
+                amount_original = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_currency), context=context_multi_currency)
+                amount_unreconciled = currency_pool.compute(cr, uid, line.currency_id.id, currency_id, abs(line.amount_residual_currency), context=context_multi_currency)
+                if amount_unreconciled == price:
+                    move_lines_found.append(line.id)
+                    break
+                total_credit += line.credit and amount_original or 0.0
+                total_debit += line.debit and amount_original or 0.0
 
         remaining_amount = price
         #voucher line creation
