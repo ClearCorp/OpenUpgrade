@@ -1920,7 +1920,7 @@ class BaseModel(object):
         for order_part in orderby.split(','):
             order_split = order_part.split()
             order_field = order_split[0]
-            if order_field in groupby_fields:
+            if order_field == 'id' or order_field in groupby_fields:
 
                 if self._fields[order_field.split(':')[0]].type == 'many2one':
                     order_clause = self._generate_order_by(order_part, query).replace('ORDER BY ', '')
@@ -3376,10 +3376,32 @@ class BaseModel(object):
             if column.deprecated:
                 _logger.warning('Field %s.%s is deprecated: %s', self._name, f, column.deprecated)
 
+        # determine fields that need cache validation (nonstored float function
+        # fields with a decimal precision)
+        validate_fields = [
+            f for f in field_names
+            if isinstance(self._columns[f], openerp.osv.fields.function) and
+            self._columns[f]._type == 'float' and self._columns[f].digits and
+            not self._columns[f].store
+        ]
         # store result in cache
         for vals in result:
             record = self.browse(vals.pop('id'))
-            record._cache.update(record._convert_to_cache(vals, validate=False))
+            # write database fields to cache without validation
+            record._cache.update(record._convert_to_cache(
+                {
+                    key: value for key, value in vals.iteritems()
+                    if key not in validate_fields
+                },
+                validate=False))
+            # write other fields to cache with validation
+            record._cache.update(record._convert_to_cache(
+                {
+                    key: value for key, value in vals.iteritems()
+                    if key in validate_fields
+                },
+                validate=True))
+
 
         # store failed values in cache for the records that could not be read
         fetched = self.browse(ids)

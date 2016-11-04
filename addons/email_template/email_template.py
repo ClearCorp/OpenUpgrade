@@ -67,8 +67,8 @@ def format_tz(pool, cr, uid, dt, tz=False, format=False, context=None):
         format_date = lang_params.get("date_format", '%B-%d-%Y')
         format_time = lang_params.get("time_format", '%I-%M %p')
 
-        fdate = ts.strftime(format_date)
-        ftime = ts.strftime(format_time)
+        fdate = ts.strftime(format_date).decode('utf-8')
+        ftime = ts.strftime(format_time).decode('utf-8')
         return "%s %s%s" % (fdate, ftime, (' (%s)' % tz) if tz else '')
 
 try:
@@ -513,6 +513,9 @@ class email_template(osv.osv):
 
             # Add report in attachments: generate once for all template_res_ids
             if template.report_template:
+                # Fix : Force report to use res ids and not active_ids
+                if ctx and 'active_ids' in ctx:
+                    del ctx['active_ids']
                 for res_id in template_res_ids:
                     attachments = []
                     report_name = self.render_template(cr, uid, template.report_name, template.model, res_id, context=ctx)
