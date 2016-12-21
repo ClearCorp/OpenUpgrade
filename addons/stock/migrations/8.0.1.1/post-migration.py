@@ -21,7 +21,7 @@
 ##############################################################################
 
 import logging
-from openerp import api, SUPERUSER_ID
+from openerp import api, models, SUPERUSER_ID
 from openerp.openupgrade import openupgrade, openupgrade_80
 from openerp.modules.registry import RegistryManager
 from openerp import SUPERUSER_ID as uid
@@ -158,6 +158,8 @@ def migrate_stock_location(cr, registry):
             vals['picking_type_id'] = warehouse.out_type_id.id
         else:
             vals['picking_type_id'] = warehouse.int_type_id.id
+        if warehouse and warehouse[0].company_id:
+            vals['company_id'] = warehouse[0].company_id.id
         path_obj.create(cr, uid, vals)
 
 
@@ -214,10 +216,6 @@ def migrate_stock_picking(cr, registry):
         ADD COLUMN %s INTEGER
         """ % openupgrade.get_legacy_name('move_id'))
     # Recreate stock.pack.operation (only for moves that belongs to a picking)
-    stock_move_obj = registry['stock.move']
-    done_move_ids = stock_move_obj.search(cr, uid, [('state', '=', 'done')])
-    if not done_move_ids:
-        return
     openupgrade.logged_query(
         cr,
         """
@@ -229,11 +227,11 @@ def migrate_stock_picking(cr, registry):
             product_uom_qty, %s, date, location_id, location_dest_id, 'true'
         FROM stock_move
         WHERE
-            id IN %%s
+            state = 'done'
             AND picking_id IS NOT NULL
         """ % (openupgrade.get_legacy_name('move_id'),
-               openupgrade.get_legacy_name('prodlot_id')),
-        (tuple(done_move_ids), ))
+               openupgrade.get_legacy_name('prodlot_id')), )
+
     # And link it with moves creating stock.move.operation.link records
     openupgrade.logged_query(
         cr,
@@ -487,6 +485,45 @@ def _migrate_stock_warehouse(cr, registry, res_id):
             'sequence': max_sequence + 2,
         })
 
+    # If warehouse is main warehouse, we have to create records in
+    # ir_model_data, because these are used in testing:
+    def create_missing(env, xml_id, res_id):
+        """Add missing record to ir_model_data."""
+        model_data_obj = env['ir.model.data']
+        model_data_record = model_data_obj.search([
+            ('module', '=', 'stock'),
+            ('name', '=', xml_id),
+        ], limit=1)
+        if not model_data_record:
+            model_data_obj.create({
+                'module': 'stock',
+                'model': 'stock.picking.type',
+                'name': xml_id,
+                'res_id': res_id,
+            })
+        else:
+            # If there already is a model_data record, check wether it
+            # points to the right record, and modify if not:
+            old_res_id = model_data_record.res_id
+            if res_id != old_res_id:
+                # autocorrect existing ir_model_data:
+                model_data_record.write({'res_id': res_id})
+                logger.warn(
+                    "xml_id %s now points to res_id %d, no longer to %d.",
+                    xml_id, res_id, old_res_id
+                )
+        # Avoid the xml id and the associated resource being dropped by the
+        # orm by manually making a hit on it:
+        model_data_obj._update_dummy('stock.picking.type', 'stock', xml_id)
+
+    with api.Environment.manage():
+        env = api.Environment(cr, SUPERUSER_ID, {})
+        main_warehouse = env.ref('stock.warehouse0')
+        if warehouse.id == main_warehouse.id:
+            create_missing(env, 'picking_type_in', in_type_id)
+            create_missing(env, 'picking_type_out', out_type_id)
+            create_missing(env, 'picking_type_internal', int_type_id)
+
     vals.update({
         'in_type_id': in_type_id,
         'out_type_id': out_type_id,
@@ -686,6 +723,12 @@ def migrate_procurement_order(cr, registry):
 
 def migrate_stock_qty(cr, registry):
     """Reprocess stock moves in done state to fill stock.quant."""
+    # First set restrict_lot_id so that quants point to correct moves
+    sql = '''
+        UPDATE stock_move SET restrict_lot_id = {}
+    '''.format(openupgrade.get_legacy_name('prodlot_id'))
+    openupgrade.logged_query(cr, sql)
+
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
         done_moves = env['stock.move'].search(
@@ -695,6 +738,10 @@ def migrate_stock_qty(cr, registry):
             'Reprocess %s stock moves in state done to fill stock.quant',
             len(done_moves.ids))
         done_moves.write({'state': 'draft'})
+        # disable all workflow steps - massive performance boost, no side
+        # effects of workflow transitions with yet unknown condition
+        set_workflow_org = models.BaseModel.step_workflow
+        models.BaseModel.step_workflow = lambda *args, **kwargs: None
         # Process moves using action_done.
         for move in done_moves:
             date_done = move.date
@@ -705,6 +752,7 @@ def migrate_stock_qty(cr, registry):
             quants_to_rewrite = move.quant_ids.filtered(
                 lambda x: x.in_date > date_done)
             quants_to_rewrite.write({'in_date': date_done})
+        models.BaseModel.step_workflow = set_workflow_org
 
 
 def migrate_stock_production_lot(cr, registry):

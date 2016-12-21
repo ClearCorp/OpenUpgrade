@@ -26,7 +26,9 @@ from openerp.addons.openupgrade_records.lib import apriori
 xml_ids = [
     ('portal.group_anonymous', 'base.group_public'),
     ('portal.group_portal', 'base.group_portal'),
-    ]
+    ('l10n_gt.GTQ', 'base.GTQ'),
+    ('l10n_gt.rateGTQ', 'base.rateGTQ'),
+]
 
 
 @openupgrade.migrate()
@@ -45,3 +47,12 @@ def migrate(cr, version):
         cr, 'ir_ui_view', 'type', [
             'calendar', 'diagram', 'form', 'gantt', 'graph', 'kanban',
             'qweb', 'search', 'tree'])
+    
+    # The tables stock.picking.in and stock.picking.out are merged into 
+    # stock.picking
+    openupgrade.logged_query(
+        cr, """
+        UPDATE ir_attachment
+        SET res_model = 'stock.picking'
+        WHERE res_model in ('stock.picking.in', 'stock.picking.out');
+        """)
