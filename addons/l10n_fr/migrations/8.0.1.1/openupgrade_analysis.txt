@@ -1,0 +1,7 @@
+---Fields in module 'l10n_fr'---
+---XML records in module 'l10n_fr'---
+NEW ir.actions.report.xml: l10n_fr.action_report_report_l10nbilan
+NEW ir.actions.report.xml: l10n_fr.action_report_report_l10nresultat
+NEW ir.ui.view: l10n_fr.report_l10nfrbilan
+NEW ir.ui.view: l10n_fr.report_l10nfrresultat
+DEL ir.values: l10n_fr.l10n_fr_pcg_chart_template_value

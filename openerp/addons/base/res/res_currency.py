@@ -104,9 +104,17 @@ class res_currency(osv.osv):
         # we would allow duplicate "global" currencies (all having company_id == NULL) 
         cr.execute("""SELECT indexname FROM pg_indexes WHERE indexname = 'res_currency_unique_name_company_id_idx'""")
         if not cr.fetchone():
-            cr.execute("""CREATE UNIQUE INDEX res_currency_unique_name_company_id_idx
-                          ON res_currency
-                          (name, (COALESCE(company_id,-1)))""")
+            try:
+                cr.execute('SAVEPOINT index_currency');
+                cr.execute("""CREATE UNIQUE INDEX res_currency_unique_name_company_id_idx
+                           ON res_currency
+                           (name, (COALESCE(company_id,-1)))""")
+                cr.execute('RELEASE SAVEPOINT index_currency');
+            except Exception, e:
+                cr.execute('ROLLBACK TO SAVEPOINT index_currency');
+                import logging
+                logging.getLogger('OpenUpgrade').debug(
+                    'Could not create currency unique index: %s', e)
 
     date = fields2.Date(compute='compute_date')
 
